@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Tube : MonoBehaviour
 {
-    public float rotateSpeed = 30f; // degrees per second
+    public float rotateSpeed = 30f;
+    public float angleX;
 
     void Update()
     {
@@ -23,5 +24,8 @@ public class Tube : MonoBehaviour
             x = Mathf.Clamp(x, -30f, 30f);
             transform.localEulerAngles = new Vector3(x, euler.y, euler.z);
         }
+        angleX = transform.rotation.eulerAngles.x;
+        if (angleX > 180f) angleX -= 360f;
+        angleX = angleX * -1;
     }
 }

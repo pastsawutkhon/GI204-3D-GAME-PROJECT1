@@ -1,15 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerShooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public Transform firePoint;
+    public TMP_Text infoText;
+    public Base angleViewBase;
+    public Tube angleViewTube;
 
-    public float shootForce = 10f;
+    
+
+
+    public float shootForce = 20f;
     public float spin = 0f;
-    float addSpin = 0.1f;
-    float addForce = 5f;
+    float addSpin = 0.5f;
+    float addForce = 20f;
+    float angleY;
+    float angleX;
 
 
     void Update()
@@ -28,8 +37,21 @@ public class PlayerShooter : MonoBehaviour
         if (Keyboard.current.qKey.isPressed)
             spin -= addSpin * Time.deltaTime;
 
+        UpdateUI();
+
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
             Shoot();
+    }
+    void UpdateUI()
+    {
+        angleY = angleViewBase.angleY;
+        angleX = angleViewTube.angleX;
+
+        infoText.text =
+        "Force : " + shootForce.ToString("F1") +
+        "\nSpin : " + spin.ToString("F1") +
+        "\nAngle X : " + angleX.ToString("F1") +
+        "\nAngle Y : " + angleY.ToString("F1");
     }
 
     void Shoot()
