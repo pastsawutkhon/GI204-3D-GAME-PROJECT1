@@ -3,20 +3,20 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance;
+    public static ScoreManager instance; // ใช้เรียกจากที่อื่น
 
     public int score = 0;
-    public TMP_Text scoreText;
+    public TMP_Text scoreText; // UI ที่แสดงคะแนน
 
     void Awake()
     {
-        // ทำให้เรียกใช้ได้จากที่อื่น
+        // กำหนด instance
         instance = this;
     }
 
     void Start()
     {
-        UpdateUI(); // เริ่มต้นให้โชว์ 0
+        UpdateUI(); // แสดงค่าเริ่มต้น
     }
 
     public void AddScore(int amount)
@@ -27,6 +27,9 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateUI()
     {
-        scoreText.text = "Score : " + score;
+        if (scoreText != null)
+        {
+            scoreText.text = "Score : " + score;
+        }
     }
 }
