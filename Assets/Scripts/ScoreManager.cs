@@ -3,20 +3,22 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance; // ãªéàÃÕÂ¡¨Ò¡·ÕèÍ×è¹
+    public static ScoreManager instance; // ï¿½ï¿½ï¿½ï¿½ï¿½Â¡ï¿½Ò¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     public int score = 0;
-    public TMP_Text scoreText; // UI ·ÕèáÊ´§¤Ðá¹¹
+    public TMP_Text scoreText; // UI ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½á¹¹
+    public TMP_Text loseScoreText;
+    public TMP_Text winScoreText;
 
     void Awake()
     {
-        // ¡ÓË¹´ instance
+        // ï¿½ï¿½Ë¹ï¿½ instance
         instance = this;
     }
 
     void Start()
     {
-        UpdateUI(); // áÊ´§¤èÒàÃÔèÁµé¹
+        UpdateUI(); // ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public void AddScore(int amount)
@@ -30,6 +32,14 @@ public class ScoreManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score : " + score;
+        }
+        if (loseScoreText != null)
+        {
+            loseScoreText.text = "Your Score : " + score;
+        }
+        if (winScoreText != null)
+        {
+            winScoreText.text = "Your Score : " + score;
         }
     }
 }
