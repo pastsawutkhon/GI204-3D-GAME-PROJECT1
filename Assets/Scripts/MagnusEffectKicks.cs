@@ -40,7 +40,7 @@ public class MagnusEffectKicks : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, 5f);
     }
 
     
