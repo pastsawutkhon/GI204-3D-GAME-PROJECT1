@@ -6,8 +6,13 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("GameScene"); // ������ Scene ���ͧ���
+        SceneManager.LoadScene("GameScene"); 
     }
+
+    public void GoToCredit()
+{
+    SceneManager.LoadScene("EndCredit");
+}
 
     public void QuitGame()
     {
